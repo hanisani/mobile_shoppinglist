@@ -12,14 +12,18 @@
         <ion-list>
             <ion-item>
                 <ion-label fixed>Name</ion-label>
-                <ion-input type="text" name="ingredientName" placeholder="Milk" ngModel></ion-input>
+                <ion-input type="text" name="ingredientName" placeholder="Milk" ngModel required></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label fixed>Amount</ion-label>
-                <ion-input type="number" name="amount" placeholder="2" ngModel></ion-input>
+                <ion-input type="number" name="amount" placeholder="2" ngModel required></ion-input>
             </ion-item>
         </ion-list>
-        <button ion-button type="Submit" block>Add Item</button>
+        <button ion-button type="Submit" block [disabled]="!f.valid">Add Item</button>
     </form>
-
+    <ion-list>
+        <ion-item *ngFor="let item of listItems; let i = index" (click)="onRemoveItem(i)">
+            <h3>{{ item.name }} ({{ item.amount }})</h3>
+        </ion-item>
+    </ion-list>
 </ion-content>

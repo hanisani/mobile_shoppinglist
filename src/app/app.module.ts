@@ -10,6 +10,7 @@ import { EditRecipePage } from './../pages/edit-recipe/edit-recipe';
 import { ShoppingListPage } from './../pages/shopping-list/shopping-list';
 import { RecipesPage } from './../pages/recipes/recipes';
 import { RecipePage } from './../pages/recipe/recipe';
+import { ShoppingListService } from './../services/shopping-list';
 
 @NgModule({
   declarations: [
@@ -17,11 +18,11 @@ import { RecipePage } from './../pages/recipe/recipe';
     TabsPage,
     RecipePage,
     RecipesPage,
-    ShoppingListPage,    
+    ShoppingListPage,
     EditRecipePage
   ],
   imports: [
-    BrowserModule,    
+    BrowserModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -30,13 +31,13 @@ import { RecipePage } from './../pages/recipe/recipe';
     TabsPage,
     RecipePage,
     RecipesPage,
-    ShoppingListPage,    
+    ShoppingListPage,
     EditRecipePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    { provide: ErrorHandler, useClass: IonicErrorHandler }, ShoppingListService
   ]
 })
-export class AppModule {}
+export class AppModule { }
