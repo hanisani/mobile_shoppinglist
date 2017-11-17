@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { Recipe } from './../../models/recipe';
 import { EditRecipePage } from './../edit-recipe/edit-recipe';
+import { ShoppingListService } from './../../services/shopping-list';
 
 @Component({
   selector: 'page-recipe',
@@ -13,7 +14,7 @@ export class RecipePage implements OnInit {
   recipe: Recipe;
   index: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private slService ShoppingListService) {
   }
 
   ngOnInit() {
@@ -23,6 +24,10 @@ export class RecipePage implements OnInit {
 
   onEditRecipe() {
     this.navCtrl.push(EditRecipePage, {mode: 'Edit', recipe: this.recipe, index: this.index});
+  }
+
+  onAddIngredients() {
+
   }
 
 }
